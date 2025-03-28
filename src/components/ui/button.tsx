@@ -1,6 +1,6 @@
-import cn from 'classnames';
 import React, { ButtonHTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
+import cn from 'classnames';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
@@ -9,6 +9,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   active?: boolean;
   loading?: boolean;
   disabled?: boolean;
+  children?: React.ReactNode;  // Ensuring children can be any valid React Node
 }
 
 const classes = {
@@ -40,6 +41,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       disabled = false,
       ...rest
     } = props;
+
     const classesName = cn(
       classes.root,
       {
@@ -68,8 +70,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           <span
             className={classes.loading}
             style={{
-              borderTopColor:
-                variant === 'outline' ? 'currentColor' : '#ffffff',
+              borderTopColor: variant === 'outline' ? 'currentColor' : '#ffffff',
             }}
           />
         )}

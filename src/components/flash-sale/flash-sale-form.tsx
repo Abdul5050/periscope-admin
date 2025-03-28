@@ -300,12 +300,12 @@ export default function CreateOrUpdateFlashSaleForm({ initialValues }: IProps) {
                     dateFormat="dd/MM/yyyy"
                     onChange={onChange}
                     onBlur={onBlur}
-                    selected={value ?? new Date()}
+                    selected={value ? new Date(value) : new Date()}
                     selectsStart
                     minDate={new Date()}
-                    maxDate={end_date}
-                    startDate={start_date}
-                    endDate={end_date}
+                    maxDate={end_date ? new Date(end_date) : new Date()}
+                    startDate={start_date ? new Date(start_date) : null}
+                    endDate={end_date ? new Date(end_date) : null}
                     className="border border-border-base"
                     disabled={isTranslateFlashSale}
                   />
@@ -325,11 +325,11 @@ export default function CreateOrUpdateFlashSaleForm({ initialValues }: IProps) {
                     dateFormat="dd/MM/yyyy"
                     onChange={onChange}
                     onBlur={onBlur}
-                    selected={value}
+                    selected={value ? new Date(value) : null}
                     selectsEnd
-                    startDate={start_date}
-                    endDate={end_date}
-                    minDate={start_date}
+                    startDate={start_date ? new Date(start_date) : null}
+                    endDate={end_date ? new Date(end_date) : null}
+                    minDate={start_date ? new Date(start_date) : new Date()}
                     className="border border-border-base"
                     disabled={isTranslateFlashSale}
                   />

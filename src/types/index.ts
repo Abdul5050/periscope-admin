@@ -1416,7 +1416,7 @@ export interface RegisterInput {
   password: string;
   name: string;
   shop_id?: number;
-  // permission: Permission;
+  permission: Permission;
 }
 
 export interface ChangePasswordInput {

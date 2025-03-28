@@ -270,12 +270,12 @@ export default function CreateOrUpdateStoreNoticeForm({
                     dateFormat="dd/MM/yyyy"
                     onChange={onChange}
                     onBlur={onBlur}
-                    selected={value ?? new Date()}
+                    selected={value ? new Date(value) : null}
                     selectsStart
                     minDate={new Date()}
-                    maxDate={expired_at}
-                    startDate={effective_from}
-                    endDate={expired_at}
+                    maxDate={expired_at ? new Date(expired_at) : new Date()}
+                    startDate={effective_from ? new Date(effective_from) : null}
+                    endDate={expired_at ? new Date(expired_at) : null}
                     className="border border-border-base"
                     disabled={isTranslateStoreNotice}
                   />
@@ -295,11 +295,11 @@ export default function CreateOrUpdateStoreNoticeForm({
                     dateFormat="dd/MM/yyyy"
                     onChange={onChange}
                     onBlur={onBlur}
-                    selected={value}
+                    selected={value ? new Date(value) : null}
                     selectsEnd
-                    startDate={effective_from}
-                    endDate={expired_at}
-                    minDate={effective_from}
+                    startDate={effective_from ? new Date(effective_from) : null}
+                    endDate={expired_at ? new Date(expired_at) : null}
+                    minDate={effective_from ? new Date(effective_from) : new Date()}
                     className="border border-border-base"
                     disabled={isTranslateStoreNotice}
                   />

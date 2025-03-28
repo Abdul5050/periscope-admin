@@ -262,12 +262,12 @@ export default function CreateOrUpdateCouponForm({ initialValues }: IProps) {
                     dateFormat="dd/MM/yyyy"
                     onChange={onChange}
                     onBlur={onBlur}
-                    selected={value}
+                    selected={value ? new Date(value) : null}
                     selectsStart
                     minDate={new Date()}
-                    maxDate={expire_at}
-                    startDate={active_from}
-                    endDate={expire_at}
+                    maxDate={expire_at ? new Date(expire_at) : new Date()} // Convert expire_at to Date
+                    startDate={active_from ? new Date(active_from) : null} // Convert active_from to Date
+                    endDate={expire_at ? new Date(expire_at) : null} // Convert expire_at to Date
                     className="border border-border-base"
                     disabled={isTranslateCoupon}
                   />
@@ -287,11 +287,11 @@ export default function CreateOrUpdateCouponForm({ initialValues }: IProps) {
                     dateFormat="dd/MM/yyyy"
                     onChange={onChange}
                     onBlur={onBlur}
-                    selected={value}
+                    selected={value ? new Date(value) : null}
                     selectsEnd
-                    startDate={active_from}
-                    endDate={expire_at}
-                    minDate={active_from}
+                    startDate={active_from ? new Date(active_from) : null}
+                    endDate={expire_at ? new Date(expire_at) : null}
+                    minDate={active_from ? new Date(active_from) : new Date()}
                     className="border border-border-base"
                     disabled={isTranslateCoupon}
                   />

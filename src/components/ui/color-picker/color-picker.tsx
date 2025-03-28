@@ -8,6 +8,7 @@ export interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   name: string;
   error?: string;
+  children?: React.ReactNode;
 }
 
 const ColorPicker = React.forwardRef<HTMLInputElement, Props>(
